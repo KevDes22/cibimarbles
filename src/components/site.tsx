@@ -76,12 +76,12 @@ export function SiteFooter() {
           {nav.map((n) => <Link key={n.to} to={n.to} className="block hover:text-gold">{n.label}</Link>)}
         </FooterCol>
         <FooterCol title="Collections">
-          {products.slice(0, 6).map((p) => (
+          {products.map((p) => (
             <Link key={p.slug} to="/collections/$slug" params={{ slug: p.slug }} className="block hover:text-gold">{p.name}</Link>
           ))}
         </FooterCol>
         <FooterCol title="Contact" wide>
-          <p>Kaduna — Manufacturing &amp; Showroom</p>
+          <p>Abuja — Showroom</p>
           <p className="text-ivory/60">{company.abuja}</p>
           {company.phones.map((p) => <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="block hover:text-gold">{p}</a>)}
           <a href={`mailto:${company.email}`} className="block hover:text-gold">{company.email}</a>
