@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { company, products, type Product } from "@/lib/catalogue";
+import logo from "@/assets/cibi-logo-white.png.asset.json";
 
 const nav = [
   { to: "/collections", label: "Collections" },
@@ -30,8 +31,8 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 md:px-12">
-        <Link to="/" className="flex items-baseline gap-3">
-          <span className="font-display text-3xl tracking-[0.12em]">CIBI</span>
+        <Link to="/" className="flex items-center gap-4" aria-label="CIBI Marbles & Granite — home">
+          <img src={logo.url} alt="CIBI — Same But Different" className={`h-10 w-auto transition-[filter] duration-500 ${solid ? "brightness-0" : ""}`} />
           <span className="eyebrow hidden opacity-70 sm:inline">Marbles &amp; Granite</span>
         </Link>
         <nav className="hidden items-center gap-10 lg:flex">
@@ -67,7 +68,7 @@ export function SiteFooter() {
     <footer className="bg-charcoal text-ivory">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-24 md:grid-cols-12 md:px-12">
         <div className="md:col-span-4">
-          <p className="font-display text-5xl tracking-[0.12em]">CIBI</p>
+          <img src={logo.url} alt="CIBI — Same But Different" className="h-20 w-auto" />
           <p className="eyebrow mt-2 text-ivory/60">Marbles &amp; Granite Ltd</p>
           <p className="mt-8 max-w-xs font-display text-2xl italic text-ivory/85">Crafted in Nigeria. Designed to Last.</p>
         </div>
