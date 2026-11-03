@@ -110,7 +110,7 @@ type Seed = Pick<
 
 const seeds: Seed[] = [
   {
-    slug: "Nigerian-Juprano",
+    slug: "Nigerian_Juprano",
     name: "Nigerian Juprano",
     tone: "Dark",
     colour: "Black and white",
