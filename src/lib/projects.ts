@@ -21,7 +21,10 @@ import photo3 from "@/assets/projects/z3.jpeg";
 import photo4 from "@/assets/projects/z4.jpeg";
 import cobble5 from "@/assets/projects/z5.jpeg";
 import cobble6 from "@/assets/projects/z6.jpeg";
-import cobble7 from "@/assets/projects/z7.jpeg";
+
+import wall2 from "@/assets/projects/wall2.jpeg";
+import wall3 from "@/assets/projects/wall3.jpeg";
+
 
 
 export type ProjectPhoto = {
@@ -137,6 +140,19 @@ export const projectCategories: ProjectCategory[] = [
         description:
           "Large-format natural stone tiles arranged across an architectural wall with warm mineral detailing.",
       },
+      {
+        image: wall2,
+        title: "Precision-Finished Granite Wall Cladding",
+        description:
+          "A close-up of light grey granite panels arranged with clean, consistent joints, highlighting the stone's natural speckled texture and the precision of the wall finish.",
+      },
+      {
+        image: wall3,
+        title: "Contemporary Exterior Granite Cladding",
+        description:
+          "An expansive perimeter wall finished with large-format grey stone panels, creating a sophisticated exterior complemented by landscaped greenery and clean architectural lines.",
+      },
+
     ],
   },
   {
@@ -224,12 +240,12 @@ export const projectCategories: ProjectCategory[] = [
         description:
           "A beautifully patterned stone walkway featuring sweeping cobblestone arrangements, thoughtfully integrated with natural stone wall cladding and landscape borders.",
       },
-      {
-        image: cobble7,
-        title: "Expansive Cobblestone Courtyard",
-        description:
-          "An overhead view of an expansive courtyard showcasing carefully arranged granite cobblestones in continuous interlocking fan patterns, creating a distinctive architectural finish.",
-      },
+      // {
+      //   image: cobble7,
+      //   title: "Expansive Cobblestone Courtyard",
+      //   description:
+      //     "An overhead view of an expansive courtyard showcasing carefully arranged granite cobblestones in continuous interlocking fan patterns, creating a distinctive architectural finish.",
+      // },
 
     ],
   },
