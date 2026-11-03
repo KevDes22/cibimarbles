@@ -123,7 +123,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "champagne-gold-granite",
+    slug: "Champagne_Gold",
     name: "Champagne Gold Granite",
     tone: "Warm",
     colour: "Champagne gold and grey",
@@ -136,7 +136,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "amc-yakowa",
+    slug: "AMC_Yakowa",
     name: "AMC Yakowa",
     tone: "Warm",
     colour: "Rose pink and charcoal",
@@ -149,7 +149,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "ice-grey",
+    slug: "Ice_Grey",
     name: "Ice Grey",
     tone: "Grey",
     colour: "Light grey and black",
@@ -162,7 +162,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "yellow-fantasy",
+    slug: "Yellow_Fantasy",
     name: "Yellow Fantasy",
     tone: "Warm",
     colour: "Golden beige and black",
@@ -175,7 +175,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "tatara",
+    slug: "01_Tatara",
     name: "Tatara",
     tone: "Grey",
     colour: "White, grey and black",
@@ -188,7 +188,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "africa-black",
+    slug: "02_Africa_Black",
     name: "Africa Black",
     tone: "Dark",
     colour: "Deep charcoal black",
@@ -201,7 +201,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "kakanya",
+    slug: "03_Kakanya",
     name: "Kakanya",
     tone: "Contrast",
     colour: "Grey, black and white",
@@ -214,7 +214,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "crystal-white",
+    slug: "04_Crystal-White",
     name: "Crystal White",
     tone: "Light",
     colour: "White with dark mineral flecks",
@@ -227,7 +227,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "champagne-white",
+    slug: "05_Champagne-White",
     name: "Champagne White",
     tone: "Light",
     colour: "Cream, beige and black",
@@ -240,7 +240,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "jigawa-red",
+    slug: "06_Jigawa-Red",
     name: "Jigawa Red",
     tone: "Warm",
     colour: "Coral red and dark grey",
@@ -253,7 +253,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "green-pearl",
+    slug: "07_Green_Pearl",
     name: "Green Pearl",
     tone: "Dark",
     colour: "Deep green and black",
@@ -266,7 +266,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "gudi-white",
+    slug: "Gudi_White_Template",
     name: "Gudi White",
     tone: "Light",
     colour: "White and light grey",
