@@ -45,7 +45,7 @@ export function Slideshow({ slides, interval = 4500, eyebrow = "Inspiration" }: 
             <h3 className="mt-3 text-3xl md:text-5xl">{current.label}</h3>
           </div>
           {current.to && (
-            <Link to={current.to} search={current.search} className="eyebrow hidden border border-ivory/60 px-6 py-3 hover:bg-ivory hover:text-charcoal sm:inline-block">Explore</Link>
+            <Link to={current.to as "/collections"} search={(current.search ?? {}) as never} className="eyebrow hidden border border-ivory/60 px-6 py-3 hover:bg-ivory hover:text-charcoal sm:inline-block">Explore</Link>
           )}
         </div>
         <button onClick={() => go(index - 1)} aria-label="Previous slide" className="eyebrow absolute left-0 top-1/2 -translate-y-1/2 bg-charcoal/50 px-5 py-4 text-ivory hover:bg-charcoal">←</button>
