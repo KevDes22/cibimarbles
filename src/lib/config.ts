@@ -7,9 +7,9 @@
  */
 export const siteConfig = {
   whatsappNumber: "", // PLACEHOLDER — awaiting confirmation from CIBI
-  email: "sales@cibimarbles.com",
-  phones: ["0805 938 8382", "0803 476 6930", "0803 554 5068"],
+  email: "cibimarbles@gmail.com",
+  phones: ["0805 938 8382", "0803 476 6930"],
   companyName: "CIBI Marbles & Granite Ltd",
-  abuja: "Suite B10/11, 1st Floor, Patsy Plaza, Ebittu Ukiwe, Jabi, Abuja",
-  kaduna: "Kaduna, Nigeria",
+  abuja: "Suite 218/219, Beta Foundation Plaza, Ebittu Ukiwe Street, Jabi, Abuja",
+  
 };
