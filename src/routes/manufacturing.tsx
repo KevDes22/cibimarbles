@@ -5,7 +5,7 @@ import kitchen from "@/assets/projects/a.jpeg";
 // Upload all 18 photos to src/assets/manufacturing/ with these exact filenames.
 import Q from "@/assets/manufacturing/Q.jpeg";
 import W from "@/assets/manufacturing/W.jpeg";
-import X from "@/assets/manufacturing/X.jpeg";
+import X from "@/assets/manufacturing/stone.png";
 import Y from "@/assets/manufacturing/Y.jpeg";
 import Z from "@/assets/manufacturing/Z.jpeg";
 import U from "@/assets/manufacturing/U.jpeg";
