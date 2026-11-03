@@ -214,7 +214,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "04_Crystal-White",
+    slug: "04_Crystal_White",
     name: "Crystal White",
     tone: "Light",
     colour: "White with dark mineral flecks",
@@ -227,7 +227,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "05_Champagne-White",
+    slug: "05_Champagne_White",
     name: "Champagne White",
     tone: "Light",
     colour: "Cream, beige and black",
@@ -240,7 +240,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "06_Jigawa-Red",
+    slug: "06_Jigawa_Red",
     name: "Jigawa Red",
     tone: "Warm",
     colour: "Coral red and dark grey",
