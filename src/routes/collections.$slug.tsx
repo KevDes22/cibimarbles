@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
-import { products, uses, type UseId } from "@/lib/catalogue";
+import { relatedProducts, uses, type UseId } from "@/lib/catalogue";
 import { contactMessage, enquiryLink } from "@/lib/enquiry";
 import { siteConfig } from "@/lib/config";
 import { ProductCard } from "@/components/site";
