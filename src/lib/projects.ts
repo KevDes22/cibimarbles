@@ -19,6 +19,10 @@ import photo1 from "@/assets/projects/z1.jpeg";
 import photo2 from "@/assets/projects/z2.jpeg";
 import photo3 from "@/assets/projects/z3.jpeg";
 import photo4 from "@/assets/projects/z4.jpeg";
+import cobble5 from "@/assets/projects/z5.jpeg";
+import cobble6 from "@/assets/projects/z6.jpeg";
+import cobble7 from "@/assets/projects/z7.jpeg";
+
 
 export type ProjectPhoto = {
   image: string;
@@ -207,6 +211,26 @@ export const projectCategories: ProjectCategory[] = [
         description:
           "An expansive paved outdoor space featuring interlocking fan-shaped cobblestone arrangements framed by greenery and architectural features.",
       },
+      
+      {
+        image: cobble5,
+        title: "Decorative Cobblestone Entrance",
+        description:
+          "An elegant entrance paved with natural stone cobbles arranged in graceful fan-shaped patterns, complementing the boundary walls and architectural surroundings.",
+      },
+      {
+        image: cobble6,
+        title: "Curved Cobblestone Walkway",
+        description:
+          "A beautifully patterned stone walkway featuring sweeping cobblestone arrangements, thoughtfully integrated with natural stone wall cladding and landscape borders.",
+      },
+      {
+        image: cobble7,
+        title: "Expansive Cobblestone Courtyard",
+        description:
+          "An overhead view of an expansive courtyard showcasing carefully arranged granite cobblestones in continuous interlocking fan patterns, creating a distinctive architectural finish.",
+      },
+
     ],
   },
 
