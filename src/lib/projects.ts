@@ -22,8 +22,10 @@ import photo4 from "@/assets/projects/z4.jpeg";
 import cobble5 from "@/assets/projects/z5.jpeg";
 import cobble6 from "@/assets/projects/z6.jpeg";
 
-import wall2 from "@/assets/projects/wall2.jpeg";
-import wall3 from "@/assets/projects/wall3.jpeg";
+import wall2 from "@/assets/projects/c1.jpeg";
+import wall3 from "@/assets/projects/c2.jpeg";
+import flo from "@/assets/projects/flo.jpeg";
+import bat from "@/assets/projects/bat.jpeg";
 
 
 
@@ -89,6 +91,14 @@ export const projectCategories: ProjectCategory[] = [
         description:
           "An elegant granite vanity top with a fitted basin and a warm, organic surface pattern.",
       },
+      
+      {
+        image: bat,
+        title: "Polished Black Granite Vanity",
+        description:
+          "A refined black granite countertop featuring integrated washbasin cutouts, polished stone edges and a matching backsplash. The dark natural stone creates a sophisticated contrast with the contemporary bathroom fittings.",
+      },
+
     ],
   },
   {
@@ -125,6 +135,15 @@ export const projectCategories: ProjectCategory[] = [
           "A long polished stone walkway with contrasting dark borders for a refined commercial interior.",
         portrait: true,
       },
+      
+      {
+        image: flo,
+        title: "Premium Granite Corridor Flooring",
+        description:
+          "An elegant interior corridor finished with polished dark granite tiles. Flowing mineral patterns bring natural movement to the surface, while coordinated stone edging creates a continuous architectural finish.",
+        portrait: true,
+      },
+
     ],
   },
   {
