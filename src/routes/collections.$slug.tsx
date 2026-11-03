@@ -42,7 +42,7 @@ function ProductPage() {
   const [quote, setQuote] = useState(false);
   const current = uses.find((u) => u.id === use)!;
   const appImg = product.applications[use];
-  const related = product.related.map((s) => products.find((p) => p.slug === s)!).filter(Boolean);
+  const related = relatedProducts(product);
   const contact = enquiryLink(contactMessage(product.name, current.label), `Enquiry: ${product.name}`);
   const g = product.gallery[shot]!;
 
