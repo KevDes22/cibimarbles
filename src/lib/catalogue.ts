@@ -1,3 +1,4 @@
+
 import kitchen from "@/assets/kitchen.jpg";
 import bathroom from "@/assets/bathroom.jpg";
 import staircase from "@/assets/staircase.jpg";
@@ -13,20 +14,66 @@ export const company = {
   kaduna: siteConfig.kaduna,
 };
 
-// Images are picked up by file name — drop a new file in the folder and rebuild to replace one.
-//   src/assets/stones/<slug>.jpg           main sample photo (from CIBI brochure)
-//   src/assets/apps/<slug>-kitchen.jpg     kitchen visualisation
-//   src/assets/apps/<slug>-floor.jpg       house floor visualisation
-//   src/assets/apps/<slug>-wall.jpg        wall visualisation
-const stoneImages = import.meta.glob<string>("/src/assets/stones/*.jpg", { eager: true, import: "default" });
-const appImages = import.meta.glob<string>("/src/assets/apps/*.jpg", { eager: true, import: "default" });
+// Support PNG, JPG, JPEG and WebP images.
+const stoneImages = import.meta.glob<string>(
+  "/src/assets/stones/*.{jpg,jpeg,png,webp}",
+  { eager: true, import: "default" }
+);
+
+const appImages = import.meta.glob<string>(
+  "/src/assets/apps/*.{jpg,jpeg,png,webp}",
+  { eager: true, import: "default" }
+);
+
+const extensions = ["png", "jpg", "jpeg", "webp"] as const;
+
+function findImage(
+  files: Record<string, string>,
+  folder: "stones" | "apps",
+  filename: string
+) {
+  for (const ext of extensions) {
+    const image = files[
+      `/src/assets/${folder}/${filename}.${ext}`
+    ];
+    if (image) return image;
+  }
+  return undefined;
+}
 
 export type UseId = "kitchen" | "floor" | "wall";
 
-export const uses: { id: UseId; label: string; title: string; description: string; fallback: string }[] = [
-  { id: "kitchen", label: "Kitchen", title: "Kitchen Countertops & Islands", description: "Countertops, islands and backsplashes — a polished granite surface that anchors the kitchen and is made for daily use.", fallback: kitchen },
-  { id: "floor", label: "House Floor", title: "Residential Flooring", description: "Living rooms, hallways and entrance halls — large polished slabs that carry light through an open-plan home.", fallback: hero },
-  { id: "wall", label: "Wall", title: "Feature Walls & Cladding", description: "Feature walls and interior cladding — continuous stone that gives a room its quiet, architectural centrepiece.", fallback: lobby },
+export const uses: {
+  id: UseId;
+  label: string;
+  title: string;
+  description: string;
+  fallback: string;
+}[] = [
+  {
+    id: "kitchen",
+    label: "Kitchen",
+    title: "Kitchen Countertops & Islands",
+    description:
+      "Explore natural stone for kitchen countertops, islands and backsplashes.",
+    fallback: kitchen,
+  },
+  {
+    id: "floor",
+    label: "House Floor",
+    title: "Residential Flooring",
+    description:
+      "Explore stone finishes for living rooms, hallways and entrance halls.",
+    fallback: hero,
+  },
+  {
+    id: "wall",
+    label: "Wall",
+    title: "Feature Walls & Cladding",
+    description:
+      "Explore stone as a feature wall or architectural wall finish.",
+    fallback: lobby,
+  },
 ];
 
 export type Product = {
@@ -38,70 +85,321 @@ export type Product = {
   colour: string;
   description: string;
   image: string;
-  gallery: { src: string; label: string; position?: string }[];
-  applications: Record<UseId, { src: string; specific: boolean }>;
+  gallery: {
+    src: string;
+    label: string;
+    position?: string;
+  }[];
+  applications: Record<
+    UseId,
+    { src: string; specific: boolean }
+  >;
   specs: { label: string; value: string }[];
   related: string[];
 };
 
-type Seed = Pick<Product, "slug" | "name" | "tone" | "colour" | "description"> & { related: string[] };
+type Seed = Pick<
+  Product,
+  | "slug"
+  | "name"
+  | "tone"
+  | "colour"
+  | "description"
+  | "related"
+>;
 
-// Category from CIBI brochure ("finest collection of well polished granites"). Descriptions describe the visible sample only.
 const seeds: Seed[] = [
-  { slug: "african-multicolor", name: "African Multicolor (AMC)", tone: "Warm multicolour", colour: "Multicolour — warm reds, greys and black", description: "A lively, multi-toned granite with warm mineral flecks that brings depth and character to generous surfaces.", related: ["zaria-red", "champagne-gold", "kujama-black-white"] },
-  { slug: "kamazo-grey", name: "Kamazo Grey", tone: "Grey", colour: "Grey with dark mineral flecks", description: "A composed grey granite with an even, fine-grained pattern — understated and endlessly versatile.", related: ["kamazo-wavy", "malali-dark-grey", "champagne-light"] },
-  { slug: "champagne-light", name: "Champagne Light", tone: "Light", colour: "Light champagne", description: "A soft, light granite in pale champagne tones that keeps interiors bright and calm.", related: ["champagne-gold", "kamazo-grey", "african-multicolor"] },
-  { slug: "champagne-gold", name: "Champagne Gold", tone: "Warm", colour: "Warm champagne gold with dark flecks", description: "A warm, golden granite with a gentle flowing grain — a signature surface for kitchens, floors and feature walls.", related: ["champagne-light", "african-multicolor", "zaria-red"] },
-  { slug: "kujama-black-white", name: "Kujama Black & White", tone: "Contrast", colour: "Black and white", description: "A striking contrast of black and white minerals, made for confident, graphic spaces.", related: ["malali-dark-grey", "kamazo-grey", "kamazo-wavy"] },
-  { slug: "zaria-red", name: "Zaria Red", tone: "Warm", colour: "Deep red with black", description: "A rich red granite with bold mineral clusters — warm, dramatic and unmistakably distinctive.", related: ["african-multicolor", "champagne-gold", "kujama-black-white"] },
-  { slug: "kamazo-wavy", name: "Kamazo Wavy", tone: "Grey", colour: "Grey with flowing movement", description: "A grey granite with natural wave-like movement that gives large surfaces a sense of flow.", related: ["kamazo-grey", "malali-dark-grey", "kujama-black-white"] },
-  { slug: "malali-dark-grey", name: "Malali Dark Grey", tone: "Dark", colour: "Dark grey", description: "A deep, dark grey granite with a refined, quiet presence for elegant modern interiors.", related: ["kujama-black-white", "kamazo-grey", "kamazo-wavy"] },
+  {
+    slug: "nigerian-juprano",
+    name: "Nigerian Juprano",
+    tone: "Dark",
+    colour: "Black and white",
+    description:
+      "A dramatic granite with bold, sweeping white and charcoal mineral movement.",
+    related: [
+      "kakanya",
+      "africa-black",
+      "amc-yakowa",
+    ],
+  },
+  {
+    slug: "champagne-gold-granite",
+    name: "Champagne Gold Granite",
+    tone: "Warm",
+    colour: "Champagne gold and grey",
+    description:
+      "A warm champagne surface marked by flowing grey mineral patterns and natural depth.",
+    related: [
+      "champagne-white",
+      "yellow-fantasy",
+      "gudi-white",
+    ],
+  },
+  {
+    slug: "amc-yakowa",
+    name: "AMC Yakowa",
+    tone: "Warm",
+    colour: "Rose pink and charcoal",
+    description:
+      "An expressive granite with pink tones and dark, flowing mineral details.",
+    related: [
+      "jigawa-red",
+      "nigerian-juprano",
+      "champagne-gold-granite",
+    ],
+  },
+  {
+    slug: "ice-grey",
+    name: "Ice Grey",
+    tone: "Grey",
+    colour: "Light grey and black",
+    description:
+      "A refined, light-grey surface with an intricate, evenly distributed mineral pattern.",
+    related: [
+      "crystal-white",
+      "tatara",
+      "gudi-white",
+    ],
+  },
+  {
+    slug: "yellow-fantasy",
+    name: "Yellow Fantasy",
+    tone: "Warm",
+    colour: "Golden beige and black",
+    description:
+      "A distinctive golden-beige granite with dark speckles and a warm, inviting appearance.",
+    related: [
+      "champagne-gold-granite",
+      "champagne-white",
+      "amc-yakowa",
+    ],
+  },
+  {
+    slug: "tatara",
+    name: "Tatara",
+    tone: "Grey",
+    colour: "White, grey and black",
+    description:
+      "A classic granite with dense black, white and grey mineral detailing.",
+    related: [
+      "ice-grey",
+      "crystal-white",
+      "kakanya",
+    ],
+  },
+  {
+    slug: "africa-black",
+    name: "Africa Black",
+    tone: "Dark",
+    colour: "Deep charcoal black",
+    description:
+      "A deep charcoal granite with subtle, fine-grained mineral texture.",
+    related: [
+      "green-pearl",
+      "nigerian-juprano",
+      "tatara",
+    ],
+  },
+  {
+    slug: "kakanya",
+    name: "Kakanya",
+    tone: "Contrast",
+    colour: "Grey, black and white",
+    description:
+      "A striking stone defined by dramatic black-and-white flowing mineral bands.",
+    related: [
+      "nigerian-juprano",
+      "tatara",
+      "ice-grey",
+    ],
+  },
+  {
+    slug: "crystal-white",
+    name: "Crystal White",
+    tone: "Light",
+    colour: "White with dark mineral flecks",
+    description:
+      "A bright granite with crisp white tones and contrasting dark mineral detailing.",
+    related: [
+      "gudi-white",
+      "ice-grey",
+      "champagne-white",
+    ],
+  },
+  {
+    slug: "champagne-white",
+    name: "Champagne White",
+    tone: "Light",
+    colour: "Cream, beige and black",
+    description:
+      "A light cream-coloured granite with warm minerals and delicate dark flecks.",
+    related: [
+      "champagne-gold-granite",
+      "yellow-fantasy",
+      "crystal-white",
+    ],
+  },
+  {
+    slug: "jigawa-red",
+    name: "Jigawa Red",
+    tone: "Warm",
+    colour: "Coral red and dark grey",
+    description:
+      "A rich red-toned stone with expressive dark, flowing mineral patterns.",
+    related: [
+      "amc-yakowa",
+      "champagne-gold-granite",
+      "yellow-fantasy",
+    ],
+  },
+  {
+    slug: "green-pearl",
+    name: "Green Pearl",
+    tone: "Dark",
+    colour: "Deep green and black",
+    description:
+      "A dark stone with distinctive green mineral reflections and speckled detail.",
+    related: [
+      "africa-black",
+      "nigerian-juprano",
+      "tatara",
+    ],
+  },
+  {
+    slug: "gudi-white",
+    name: "Gudi White",
+    tone: "Light",
+    colour: "White and light grey",
+    description:
+      "A clean, pale granite with a subtle fine-grained pattern.",
+    related: [
+      "crystal-white",
+      "ice-grey",
+      "champagne-white",
+    ],
+  },
 ];
 
+// Automatically build all 13 complete products.
 export const products: Product[] = seeds.map((s) => {
-  const image = stoneImages[`/src/assets/stones/${s.slug}.jpg`] ?? hero;
+  const image =
+    findImage(stoneImages, "stones", s.slug) ?? hero;
+
   const applications = Object.fromEntries(
     uses.map((u) => {
-      const src = appImages[`/src/assets/apps/${s.slug}-${u.id}.jpg`];
-      return [u.id, { src: src ?? u.fallback, specific: !!src }];
-    }),
+      const src = findImage(
+        appImages,
+        "apps",
+        `${s.slug}-${u.id}`
+      );
+
+      return [
+        u.id,
+        {
+          src: src ?? u.fallback,
+          specific: Boolean(src),
+        },
+      ];
+    })
   ) as Product["applications"];
+
   return {
     id: s.slug,
     ...s,
     category: "Granite",
     image,
+
     gallery: [
-      { src: image, label: "Polished sample" },
-      { src: image, label: "Texture detail", position: "30% 30%" },
-      { src: image, label: "Grain close-up", position: "75% 70%" },
+      {
+        src: image,
+        label: "Showroom presentation",
+      },
     ],
+
     applications,
+
     specs: [
-      { label: "Material", value: "Granite" },
-      { label: "Colour", value: s.colour },
-      { label: "Finish", value: "Polished. Other finishes — contact CIBI" },
-      { label: "Dimensions & thickness", value: "Contact CIBI" },
-      { label: "Recommended applications", value: "Kitchen, flooring, walls" },
-      { label: "Processed in", value: "Kaduna, Nigeria" },
+      {
+        label: "Material",
+        value: "Granite",
+      },
+      {
+        label: "Colour",
+        value: s.colour,
+      },
+      {
+        label: "Finish",
+        value: "Ask CIBI about available finishes",
+      },
+      {
+        label: "Dimensions",
+        value:
+          "60×60, 60×120, Cut-to-Size (confirm availability)",
+      },
+      {
+        label: "Thickness",
+        value:
+          "15mm, 20mm, 30mm (confirm availability)",
+      },
+      {
+        label: "Applications",
+        value:
+          "Kitchen, flooring, wall finishes — subject to suitability",
+      },
+      {
+        label: "Company manufacturing location",
+        value: "Kaduna, Nigeria",
+      },
     ],
   };
 });
 
-export const materialCategories = ["Granite", "Marble", "Quartz", "Porcelain", "Tiles"];
+export const materialCategories = [
+  "Granite",
+  "Marble",
+  "Quartz",
+  "Porcelain",
+  "Tiles",
+];
 
-/** Used by the contact page dropdown. */
+// Used by the existing contact page.
 export const applications = [
-  { id: "kitchen", label: "Kitchen", image: kitchen },
-  { id: "flooring", label: "House Floor", image: hero },
-  { id: "walls", label: "Wall", image: lobby },
-  { id: "bathroom", label: "Bathroom", image: bathroom },
-  { id: "staircase", label: "Staircase", image: staircase },
+  {
+    id: "kitchen",
+    label: "Kitchen",
+    image: kitchen,
+  },
+  {
+    id: "flooring",
+    label: "House Floor",
+    image: hero,
+  },
+  {
+    id: "walls",
+    label: "Wall",
+    image: lobby,
+  },
+  {
+    id: "bathroom",
+    label: "Bathroom",
+    image: bathroom,
+  },
+  {
+    id: "staircase",
+    label: "Staircase",
+    image: staircase,
+  },
 ] as const;
 
-export function enquiryMessage(productName?: string, application?: string) {
+export function enquiryMessage(
+  productName?: string,
+  application?: string
+) {
   if (!productName) return "";
+
   return `Hello CIBI, I am interested in ${productName}${
-    application ? ` for my ${application.toLowerCase()}` : ""
+    application
+      ? ` for my ${application.toLowerCase()}`
+      : ""
   }. I would like to enquire about availability, finishing and pricing.`;
 }
