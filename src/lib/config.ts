@@ -11,5 +11,5 @@ export const siteConfig = {
   phones: ["0805 938 8382", "0803 476 6930"],
   companyName: "CIBI Marbles & Granite Ltd",
   abuja: "Suite 218/219, Beta Foundation Plaza, Ebittu Ukiwe Street, Jabi, Abuja",
-
+  kaduna: "Kaduna, Nigeria",
 };

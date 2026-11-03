@@ -11,7 +11,7 @@ export const company = {
   email: siteConfig.email,
   phones: siteConfig.phones,
   abuja: siteConfig.abuja,
-  // kaduna: siteConfig.kaduna,
+  kaduna: siteConfig.kaduna,
 };
 
 // Support PNG, JPG, JPEG and WebP images.
