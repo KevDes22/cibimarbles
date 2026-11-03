@@ -134,7 +134,7 @@ const seeds: Seed[] = [
   //   ],
   // },
   {
-    slug: "Champagne_Gol",
+    slug: "Champagne",
     name: "Champagne Gold",
     tone: "Warm",
     colour: "Champagne gold and grey",
@@ -160,7 +160,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "Ice_Grey",
+    slug: "IceGrey",
     name: "Ice Grey",
     tone: "Grey",
     colour: "Light grey and black",
