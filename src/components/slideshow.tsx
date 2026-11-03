@@ -32,7 +32,7 @@ export function Slideshow({ slides, interval = 4500, eyebrow = "Inspiration" }: 
       >
         {slides.map((it, i) => (
           <img
-            key={it.label}
+            key={`${it.label}-${i}`}
             src={it.img}
             alt={`${it.label} — ${eyebrow.toLowerCase()}`}
             aria-hidden={i !== index}
@@ -55,14 +55,14 @@ export function Slideshow({ slides, interval = 4500, eyebrow = "Inspiration" }: 
           <div key={`${index}-${tick}`} className="h-full bg-gold" style={{ animation: `slide-progress ${interval}ms linear forwards` }} />
         </div>
       </div>
-      <div className="mt-4 grid gap-2 md:gap-4" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
+      <div className="mt-4 flex gap-2 overflow-x-auto pb-1 md:gap-3">
         {slides.map((it, i) => (
           <button
-            key={it.label}
+            key={`${it.label}-${i}`}
             onClick={() => go(i)}
             aria-label={`Show ${it.label}`}
             aria-current={i === index}
-            className={`relative aspect-[16/9] overflow-hidden transition-opacity ${i === index ? "opacity-100 outline outline-1 outline-offset-2 outline-gold" : "opacity-50 hover:opacity-90"}`}
+            className={`relative aspect-[16/9] w-24 shrink-0 overflow-hidden md:w-32 transition-opacity ${i === index ? "opacity-100 outline outline-1 outline-offset-2 outline-gold" : "opacity-50 hover:opacity-90"}`}
           >
             <img src={it.img} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
           </button>

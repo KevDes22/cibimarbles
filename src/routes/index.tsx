@@ -2,8 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import kitchen from "@/assets/kitchen.jpg";
 import factory from "@/assets/factory.jpg";
-import staircase from "@/assets/staircase.jpg";
-import bathroom from "@/assets/bathroom.jpg";
 import lobby from "@/assets/lobby.jpg";
 import { products } from "@/lib/catalogue";
 import { ProductCard, SectionHeading, TextLink } from "@/components/site";
@@ -22,13 +20,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-const spaces = [
-  { label: "Kitchens", app: "kitchen", img: kitchen },
-  { label: "Staircases", app: "staircase", img: staircase },
-  { label: "Bathrooms", app: "bathroom", img: bathroom },
-  { label: "Feature Walls", app: "walls", img: lobby },
-];
 
 function Home() {
   return (
