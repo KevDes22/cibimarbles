@@ -81,7 +81,7 @@ export function SiteFooter() {
           ))}
         </FooterCol>
         <FooterCol title="Contact" wide>
-          <p>Kaduna — Manufacturing &amp; Showroom</p>
+          <p>Abuja — Showroom</p>
           <p className="text-ivory/60">{company.abuja}</p>
           {company.phones.map((p) => <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="block hover:text-gold">{p}</a>)}
           <a href={`mailto:${company.email}`} className="block hover:text-gold">{company.email}</a>
