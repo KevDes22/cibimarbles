@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
-import { products, uses, type UseId } from "@/lib/catalogue";
+import { products, relatedProducts, uses, type UseId } from "@/lib/catalogue";
 import { contactMessage, enquiryLink } from "@/lib/enquiry";
 import { siteConfig } from "@/lib/config";
 import { ProductCard } from "@/components/site";
@@ -42,7 +42,7 @@ function ProductPage() {
   const [quote, setQuote] = useState(false);
   const current = uses.find((u) => u.id === use)!;
   const appImg = product.applications[use];
-  const related = product.related.map((s) => products.find((p) => p.slug === s)!).filter(Boolean);
+  const related = relatedProducts(product);
   const contact = enquiryLink(contactMessage(product.name, current.label), `Enquiry: ${product.name}`);
   const g = product.gallery[shot]!;
 

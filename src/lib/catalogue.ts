@@ -11,7 +11,7 @@ export const company = {
   email: siteConfig.email,
   phones: siteConfig.phones,
   abuja: siteConfig.abuja,
-  // kaduna: siteConfig.kaduna,
+  kaduna: siteConfig.kaduna,
 };
 
 // Support PNG, JPG, JPEG and WebP images.
@@ -353,6 +353,24 @@ export const products: Product[] = seeds.map((s) => {
     ],
   };
 });
+
+// Related-stone references are written as plain names ("africa-black"),
+// while product slugs carry file prefixes ("02_Africa_Black"). Match
+// both sides by normalised name or slug so related products resolve.
+const normalise = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+const productLookup = new Map<string, Product>();
+for (const p of products) {
+  productLookup.set(normalise(p.slug), p);
+  productLookup.set(normalise(p.name), p);
+}
+
+export function relatedProducts(product: Product): Product[] {
+  return product.related
+    .map((r) => productLookup.get(normalise(r)))
+    .filter((p): p is Product => Boolean(p));
+}
 
 export const materialCategories = [
   "Granite",
