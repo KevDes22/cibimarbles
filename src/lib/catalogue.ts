@@ -120,19 +120,19 @@ type Seed = Pick<
 >;
 
 const seeds: Seed[] = [
-  {
-    slug: "Nigerian_Juprano",
-    name: "Nigerian Juprano",
-    tone: "Dark",
-    colour: "Black and white",
-    description:
-      "A dramatic granite with bold, sweeping white and charcoal mineral movement.",
-    related: [
-      "kakanya",
-      "africa-black",
-      "amc-yakowa",
-    ],
-  },
+  // {
+  //   slug: "Nigerian_Juprano",
+  //   name: "Nigerian Juprano",
+  //   tone: "Dark",
+  //   colour: "Black and white",
+  //   description:
+  //     "A dramatic granite with bold, sweeping white and charcoal mineral movement.",
+  //   related: [
+  //     "kakanya",
+  //     "africa-black",
+  //     "amc-yakowa",
+  //   ],
+  // },
   {
     slug: "Champagne_Gol",
     name: "Champagne Gold",
