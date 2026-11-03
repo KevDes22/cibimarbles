@@ -3,7 +3,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageIntro } from "@/components/site";
 import { projectCategories, type ProjectPhoto } from "@/lib/projects";
 import { Reveal } from "@/components/reveal";
-import photoO from "@/assets/projects/o.jpeg";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
