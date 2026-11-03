@@ -8,6 +8,8 @@ import lobby from "@/assets/lobby.jpg";
 import { products } from "@/lib/catalogue";
 import { ProductCard, SectionHeading, TextLink } from "@/components/site";
 import { Slideshow } from "@/components/slideshow";
+import { Reveal } from "@/components/reveal";
+import { projectPhotos } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -57,12 +59,12 @@ function Home() {
       {/* Intro */}
       <section className="mx-auto grid max-w-[1440px] items-center gap-16 px-6 py-28 md:grid-cols-12 md:px-12 md:py-40">
         <div className="md:col-span-5">
-          <SectionHeading eyebrow="The Art of Natural Stone" title="Where Nature Meets Craftsmanship.">
+          <Reveal><SectionHeading eyebrow="The Art of Natural Stone" title="Where Nature Meets Craftsmanship.">
             <p>
               CIBI is an indigenous Nigerian manufacturer. In Kaduna, natural stone from Nigerian dimension-stone quarries is cut and polished
               using Italian technology, then fabricated and installed with precision for architects, developers and homeowners.
             </p>
-          </SectionHeading>
+          </SectionHeading></Reveal>
           <div className="mt-10"><TextLink to="/about">Learn about CIBI</TextLink></div>
         </div>
         <div className="md:col-span-6 md:col-start-7">
@@ -74,7 +76,7 @@ function Home() {
       <section className="border-t border-border bg-paper">
         <div className="mx-auto max-w-[1440px] px-6 py-28 md:px-12 md:py-36">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-            <SectionHeading eyebrow="The Collection" title="A Collection Shaped by Nature." />
+            <Reveal><SectionHeading eyebrow="The Collection" title="A Collection Shaped by Nature." /></Reveal>
             <TextLink to="/collections">View full catalogue</TextLink>
           </div>
           <div className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -85,10 +87,10 @@ function Home() {
 
       {/* Spaces */}
       <section className="mx-auto max-w-[1440px] px-6 py-28 md:px-12 md:py-40">
-        <SectionHeading eyebrow="Stone in Living Spaces" title="Imagine the Possibilities." />
-        <div className="mt-16">
-          <Slideshow slides={spaces.map((sp) => ({ img: sp.img, label: sp.label, to: "/collections", search: { application: sp.app } }))} />
-        </div>
+        <Reveal><SectionHeading eyebrow="Our Work" title="Spaces Finished by CIBI." /></Reveal>
+        <Reveal delay={150} className="mt-16">
+          <Slideshow eyebrow="CIBI Project" slides={projectPhotos.map((p) => ({ img: p.image, label: p.title, to: "/projects" }))} />
+        </Reveal>
       </section>
 
       {/* Manufacturing */}
@@ -96,7 +98,7 @@ function Home() {
         <div className="mx-auto grid max-w-[1440px] items-center gap-16 px-6 py-28 md:grid-cols-12 md:px-12 md:py-40">
           <img src={factory} alt="Granite slab being cut by an industrial bridge saw" loading="lazy" width={1280} height={960} className="aspect-[4/3] w-full object-cover md:col-span-7" />
           <div className="md:col-span-4 md:col-start-9">
-            <SectionHeading light eyebrow="Proudly Manufactured in Nigeria" title="Precision in Every Cut. Excellence in Every Finish." />
+            <Reveal><SectionHeading light eyebrow="Proudly Manufactured in Nigeria" title="Precision in Every Cut. Excellence in Every Finish." /></Reveal>
             <ul className="mt-10 divide-y divide-ivory/10 border-y border-ivory/10 text-sm text-ivory/75">
               {["Manufacturing operations in Kaduna", "Italian cutting & polishing technology", "Locally sourced natural stone", "Skilled craftsmanship", "Fabrication & installation"].map((t) => (
                 <li key={t} className="py-4">{t}</li>
@@ -109,7 +111,7 @@ function Home() {
 
       {/* Experience */}
       <section className="mx-auto max-w-[1440px] px-6 py-28 md:px-12 md:py-40">
-        <SectionHeading eyebrow="The CIBI Experience" title="From Selection to Installation." />
+        <Reveal><SectionHeading eyebrow="The CIBI Experience" title="From Selection to Installation." /></Reveal>
         <div className="mt-16 grid border-t border-border md:grid-cols-3">
           {[
             ["01", "Discover Your Stone", "Visit our Kaduna or Abuja showroom and select from our natural stone collections with guidance from our team."],
