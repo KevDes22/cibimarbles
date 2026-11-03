@@ -14,6 +14,7 @@ import photoK from "@/assets/projects/k.jpeg";
 import photoL from "@/assets/projects/l.jpeg";
 import photoM from "@/assets/projects/m.jpeg";
 import photoN from "@/assets/projects/n.jpeg";
+import photoO from "@/assets/projects/o.jpeg";
 
 export type ProjectPhoto = {
   image: string;
