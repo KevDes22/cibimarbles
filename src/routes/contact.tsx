@@ -88,7 +88,7 @@ function Contact() {
 
         <aside id="showrooms" className="space-y-12 md:col-span-4 md:col-start-9">
           {[
-            ["Kaduna", "Manufacturing Facility & Showroom", company.kaduna],
+            ["Kaduna", "Manufacturing Facility", company.kaduna],
             ["Abuja", "Showroom", company.abuja],
           ].map(([city, kind, addr]) => (
             <div key={city} className="border-t border-foreground pt-6">
