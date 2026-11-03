@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageIntro } from "@/components/site";
-import kitchen from "@/assets/kitchen.jpg";
+import kitchen from "@/assets/projects/a.jpeg";
 
 // Upload all 18 photos to src/assets/manufacturing/ with these exact filenames.
 import Q from "@/assets/manufacturing/Q.jpeg";
