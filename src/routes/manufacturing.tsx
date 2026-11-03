@@ -45,7 +45,7 @@ function Manufacturing() {
         <div className="mx-auto grid max-w-[1440px] items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-12">
           <img src={kitchen} alt="Finished granite kitchen countertop" loading="lazy" className="aspect-[4/3] w-full object-cover" />
           <div>
-            <h2 className="text-5xl">From our floor to yours.</h2>
+            <h2 className="text-5xl">From our quarry to your home.</h2>
             <Link to="/contact" className="eyebrow mt-10 inline-block bg-ivory px-8 py-4 text-charcoal">Request a Quote</Link>
           </div>
         </div>
