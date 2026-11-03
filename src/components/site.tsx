@@ -76,7 +76,7 @@ export function SiteFooter() {
           {nav.map((n) => <Link key={n.to} to={n.to} className="block hover:text-gold">{n.label}</Link>)}
         </FooterCol>
         <FooterCol title="Collections">
-          {products.slice(0, 6).map((p) => (
+          {products.map((p) => (
             <Link key={p.slug} to="/collections/$slug" params={{ slug: p.slug }} className="block hover:text-gold">{p.name}</Link>
           ))}
         </FooterCol>
