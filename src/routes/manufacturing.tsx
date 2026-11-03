@@ -256,7 +256,7 @@ function ManufacturingPhoto({ photo }: { photo: ProcessPhoto }) {
 function Manufacturing() {
   return (
     <>
-      <PageIntro eyebrow="Proudly Manufactured in Nigeria" title="From Quarry To Your Home.">
+      <PageIntro eyebrow="Proudly Manufactured in Nigeria" title="From Our Quarries To Your Home.">
         Follow the journey of natural granite — from the first quarry cut to
         carefully prepared slabs ready for homes and architectural projects.
       </PageIntro>
