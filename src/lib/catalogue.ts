@@ -124,7 +124,7 @@ const seeds: Seed[] = [
   },
   {
     slug: "Champagne_Gol",
-    name: "Champagne Gold Granite",
+    name: "Champagne Gold",
     tone: "Warm",
     colour: "Champagne gold and grey",
     description:
@@ -136,7 +136,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "AMC_Yakowa",
+    slug: "amc",
     name: "AMC Yakowa",
     tone: "Warm",
     colour: "Rose pink and charcoal",
@@ -175,7 +175,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "01_Tatara",
+    slug: "tata",
     name: "Tatara",
     tone: "Grey",
     colour: "White, grey and black",
