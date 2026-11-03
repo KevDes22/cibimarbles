@@ -199,7 +199,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "02_Africa_Black",
+    slug: "afri",
     name: "Africa Black",
     tone: "Dark",
     colour: "Deep charcoal black",
@@ -251,7 +251,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "06_Jigawa_Red",
+    slug: "Jigawa_Red",
     name: "Jigawa Red",
     tone: "Warm",
     colour: "Coral red and dark grey",
@@ -264,7 +264,7 @@ const seeds: Seed[] = [
     ],
   },
   {
-    slug: "07_Green_Pearl",
+    slug: "Green_Pearl",
     name: "Green Pearl",
     tone: "Dark",
     colour: "Deep green and black",
