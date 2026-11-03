@@ -11,7 +11,7 @@ export const company = {
   email: siteConfig.email,
   phones: siteConfig.phones,
   abuja: siteConfig.abuja,
-  // kaduna: siteConfig.kaduna,
+  kaduna: siteConfig.kaduna,
 };
 
 // Support PNG, JPG, JPEG and WebP images.
@@ -37,6 +37,17 @@ function findImage(
       `/src/assets/${folder}/${filename}.${ext}`
     ];
     if (image) return image;
+  }
+  // Filenames with stray spaces (e.g. "Champagne _Gol.png") would
+  // otherwise silently fall back — retry with spaces removed.
+  const compact = filename.replace(/ /g, "");
+  if (compact !== filename) {
+    for (const ext of extensions) {
+      const image = files[
+        `/src/assets/${folder}/${compact}.${ext}`
+      ];
+      if (image) return image;
+    }
   }
   return undefined;
 }
