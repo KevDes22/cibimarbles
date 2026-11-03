@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/projects/k.jpeg";
-import kitchen from "@/assets/kitchen.jpg";
+import kitchen from "@/assets/projects/b.jpeg";
 import factory from "@/assets/factory.jpg";
 import lobby from "@/assets/lobby.jpg";
 import { products } from "@/lib/catalogue";
