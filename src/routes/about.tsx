@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import staircase from "@/assets/staircase.jpg";
-import bathroom from "@/assets/bathroom.jpg";
+import staircase from "@/assets/projects/o.jpeg";
+import bathroom from "@/assets/projects/d.jpeg";
 import { PageIntro } from "@/components/site";
 
 export const Route = createFileRoute("/about")({
