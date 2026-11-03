@@ -78,7 +78,7 @@ function Projects() {
         title="Spaces That Tell Our Story."
       >
         Discover natural stone applications across
-        kitchens, bathrooms, floors, walls and staircases.
+        kitchens, bathrooms, floors, walls, staircases and outdoor spaces.
         Each surface reveals the beauty and versatility
         of thoughtfully selected stone.
       </PageIntro>

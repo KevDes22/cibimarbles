@@ -15,6 +15,10 @@ import photoL from "@/assets/projects/l.jpeg";
 import photoM from "@/assets/projects/m.jpeg";
 import photoN from "@/assets/projects/n.jpeg";
 import photoO from "@/assets/projects/o.jpeg";
+import photo1 from "@/assets/projects/z1.jpeg";
+import photo2 from "@/assets/projects/z2.jpeg";
+import photo3 from "@/assets/projects/z3.jpeg";
+import photo4 from "@/assets/projects/z4.jpeg";
 
 export type ProjectPhoto = {
   image: string;
@@ -171,6 +175,41 @@ export const projectCategories: ProjectCategory[] = [
       },
     ],
   },
+  
+  {
+    id: "cobblestones",
+    number: "06",
+    title: "Cobblestone Paving",
+    introduction:
+      "Where natural stone meets outdoor architecture. Our cobblestone paving creates elegant, enduring surfaces for driveways, courtyards, walkways and landscaped spaces — combining distinctive patterns with timeless character.",
+    photos: [
+      {
+        image: photo1,
+        title: "Precision Cobblestone Installation",
+        description:
+          "An overhead view of carefully arranged granite cobblestones, laid in sweeping fan patterns to create a distinctive courtyard surface.",
+      },
+      {
+        image: photo2,
+        title: "Elegant Residential Driveway",
+        description:
+          "A beautifully paved residential entrance where natural stone cobbles complement the architecture, gardens and surrounding landscape.",
+      },
+      {
+        image: photo3,
+        title: "Landscaped Cobblestone Courtyard",
+        description:
+          "A thoughtfully designed outdoor courtyard featuring curved cobblestone patterns, landscaped garden borders and inviting seating areas.",
+      },
+      {
+        image: photo4,
+        title: "Decorative Outdoor Stone Paving",
+        description:
+          "An expansive paved outdoor space featuring interlocking fan-shaped cobblestone arrangements framed by greenery and architectural features.",
+      },
+    ],
+  },
+
 ];
 
 export const projectPhotos = projectCategories.flatMap((c) => c.photos);
