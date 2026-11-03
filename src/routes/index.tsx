@@ -7,6 +7,7 @@ import bathroom from "@/assets/bathroom.jpg";
 import lobby from "@/assets/lobby.jpg";
 import { products } from "@/lib/catalogue";
 import { ProductCard, SectionHeading, TextLink } from "@/components/site";
+import { Slideshow } from "@/components/slideshow";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,10 +22,10 @@ export const Route = createFileRoute("/")({
 });
 
 const spaces = [
-  { label: "Kitchens", app: "kitchen", img: kitchen, cls: "md:col-span-7 aspect-[4/3]" },
-  { label: "Staircases", app: "staircase", img: staircase, cls: "md:col-span-5 aspect-[3/4]" },
-  { label: "Bathrooms", app: "bathroom", img: bathroom, cls: "md:col-span-5 aspect-[3/4]" },
-  { label: "Feature Walls", app: "walls", img: lobby, cls: "md:col-span-7 aspect-[4/3]" },
+  { label: "Kitchens", app: "kitchen", img: kitchen },
+  { label: "Staircases", app: "staircase", img: staircase },
+  { label: "Bathrooms", app: "bathroom", img: bathroom },
+  { label: "Feature Walls", app: "walls", img: lobby },
 ];
 
 function Home() {
@@ -65,7 +66,7 @@ function Home() {
           <div className="mt-10"><TextLink to="/about">Learn about CIBI</TextLink></div>
         </div>
         <div className="md:col-span-6 md:col-start-7">
-          <img src={kitchen} alt="Kitchen with polished granite island countertop" loading="lazy" width={1280} height={960} className="aspect-[4/5] w-full object-cover" />
+          <img src={kitchen} alt="Kitchen with polished granite island countertop" loading="lazy" width={1280} height={960} className="aspect-[4/3] w-full object-cover" />
         </div>
       </section>
 
@@ -85,16 +86,8 @@ function Home() {
       {/* Spaces */}
       <section className="mx-auto max-w-[1440px] px-6 py-28 md:px-12 md:py-40">
         <SectionHeading eyebrow="Stone in Living Spaces" title="Imagine the Possibilities." />
-        <div className="mt-16 grid gap-8 md:grid-cols-12">
-          {spaces.map((s) => (
-            <Link key={s.label} to="/collections" search={{ application: s.app }} className={`group relative overflow-hidden ${s.cls}`}>
-              <img src={s.img} alt={`${s.label} in natural stone — inspiration`} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-[1.03]" />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-charcoal/70 to-transparent p-8 text-ivory">
-                <h3 className="text-3xl md:text-4xl">{s.label}</h3>
-                <span className="eyebrow opacity-70">Inspiration</span>
-              </div>
-            </Link>
-          ))}
+        <div className="mt-16">
+          <Slideshow slides={spaces.map((sp) => ({ img: sp.img, label: sp.label, to: "/collections", search: { application: sp.app } }))} />
         </div>
       </section>
 
