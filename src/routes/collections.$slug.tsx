@@ -66,7 +66,7 @@ function ProductPage() {
               </button>
             ))}
           </div>
-          <p className="mt-3 text-xs text-stone">{g.label} — enhanced from CIBI's brochure sample.</p>
+          <p className="mt-3 text-xs text-stone">{g.label} </p>
         </div>
         <div className="flex flex-col md:col-span-4 md:col-start-9">
           <nav className="eyebrow text-stone" aria-label="Breadcrumb">
