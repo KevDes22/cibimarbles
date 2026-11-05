@@ -5,7 +5,7 @@ import { contactMessage, enquiryLink } from "@/lib/enquiry";
 import { siteConfig } from "@/lib/config";
 import { ProductCard } from "@/components/site";
 import { QuoteDialog } from "@/components/quote-dialog";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { ProductGallery } from "@/components/product-gallery";
 
 export const Route = createFileRoute("/collections/$slug")({
   loader: ({ params }) => {
@@ -37,36 +37,18 @@ export const Route = createFileRoute("/collections/$slug")({
 function ProductPage() {
   const { product } = Route.useLoaderData();
   const [use, setUse] = useState<UseId>("kitchen");
-  const [shot, setShot] = useState(0);
-  const [zoom, setZoom] = useState(false);
   const [quote, setQuote] = useState(false);
   const current = uses.find((u) => u.id === use)!;
   const appImg = product.applications[use];
   const related = relatedProducts(product);
   const contact = enquiryLink(contactMessage(product.name, current.label), `Enquiry: ${product.name}`);
-  const g = product.gallery[shot]!;
 
   return (
     <>
       {/* A — Hero */}
       <section className="mx-auto grid max-w-[1440px] gap-14 px-6 pb-20 pt-32 md:grid-cols-12 md:px-12 md:pt-40">
         <div className="md:col-span-7">
-          <button onClick={() => setZoom(true)} className="group relative block aspect-[4/3] w-full overflow-hidden bg-charcoal md:aspect-[5/4]" aria-label="Zoom image">
-            <img src={g.src} alt={`${product.name} — ${g.label}`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700"
-              style={g.position ? { objectPosition: g.position, transform: "scale(2.2)" } : undefined} />
-            <span className="eyebrow absolute bottom-4 right-4 bg-charcoal/80 px-3 py-2 text-ivory/80">Zoom</span>
-          </button>
-          {/* B — Gallery */}
-          <div className="mt-4 grid grid-cols-3 gap-4">
-            {product.gallery.map((im, i) => (
-              <button key={im.label} onClick={() => setShot(i)} aria-label={im.label}
-                className={`relative aspect-[4/3] overflow-hidden border ${i === shot ? "border-gold" : "border-transparent opacity-70 hover:opacity-100"}`}>
-                <img src={im.src} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover"
-                  style={im.position ? { objectPosition: im.position, transform: "scale(2.2)" } : undefined} />
-              </button>
-            ))}
-          </div>
-          <p className="mt-3 text-xs text-stone">{g.label} </p>
+          <ProductGallery key={product.slug} product={product} />
         </div>
         <div className="flex flex-col md:col-span-4 md:col-start-9">
           <nav className="eyebrow text-stone" aria-label="Breadcrumb">
@@ -139,12 +121,6 @@ function ProductPage() {
       </section>
 
       <QuoteDialog open={quote} onOpenChange={setQuote} product={product.name} application={current.label} />
-      <Dialog open={zoom} onOpenChange={setZoom}>
-        <DialogContent className="max-w-5xl rounded-none border-0 bg-charcoal p-0">
-          <DialogTitle className="sr-only">{product.name}</DialogTitle>
-          <img src={product.image} alt={`${product.name} polished sample`} className="max-h-[88vh] w-full object-contain" />
-        </DialogContent>
-      </Dialog>
     </>
   );
 }

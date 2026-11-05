@@ -16,6 +16,8 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Request a quote or visit CIBI's showrooms in Kaduna and Jabi, Abuja for granite and marble surfaces." },
       { property: "og:title", content: "Request a Quote — CIBI Marbles & Granite" },
       { property: "og:description", content: "Speak with CIBI about granite and marble for your project. Showrooms in Kaduna and Abuja." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Contact,

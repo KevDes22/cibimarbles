@@ -36,6 +36,8 @@ export const Route = createFileRoute("/manufacturing")({
         property: "og:description",
         content: "A closer look at how natural stone becomes an architectural surface.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Manufacturing,

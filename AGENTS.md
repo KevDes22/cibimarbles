@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Resolve supplementary product gallery photos by exact normalized product names and view suffixes, omitting unavailable or ambiguous matches to avoid showing another stone.
+- Keep thumbnail selection and zoom in the shared ProductGallery so every product zooms the currently selected photograph.

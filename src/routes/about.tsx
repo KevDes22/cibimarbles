@@ -10,6 +10,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "CIBI Marbles & Granite is an indigenous Nigerian manufacturer of granite and marble surfaces, based in Kaduna with showrooms in Kaduna and Abuja." },
       { property: "og:title", content: "About CIBI Marbles & Granite" },
       { property: "og:description", content: "Crafted in Nigeria. Designed to Last." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: About,

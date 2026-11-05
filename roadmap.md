@@ -1,0 +1,3 @@
+- [x] Inspect supplementary photos and match them to registered products.
+- [x] Add labelled thumbnails and zoom the selected photo without changing other page content.
+- [x] Verify matching, thumbnail switching, zoom, and desktop/mobile display.

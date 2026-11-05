@@ -16,6 +16,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Granite, marble and architectural stone surfaces manufactured in Kaduna, Nigeria. Showrooms in Kaduna and Abuja." },
       { property: "og:title", content: "CIBI Marbles & Granite — Natural Stone Crafted in Nigeria" },
       { property: "og:description", content: "Granite, marble and architectural stone surfaces manufactured in Kaduna, with showrooms in Kaduna and Abuja." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,

@@ -25,6 +25,24 @@ const appImages = import.meta.glob<string>(
   { eager: true, import: "default" }
 );
 
+const galleryImages = import.meta.glob<string>(
+  "/src/assets/side/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
+  { eager: true, import: "default" }
+);
+
+const normaliseGalleryName = (name: string) =>
+  name.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+function findGalleryImage(productName: string, view: "Side_View" | "Texture_View") {
+  const expected = normaliseGalleryName(`${productName}_${view}`);
+  const matches = Object.entries(galleryImages).filter(([path]) => {
+    const filename = path.split("/").pop()?.replace(/\.[^.]+$/, "") ?? "";
+    return normaliseGalleryName(filename) === expected;
+  });
+  // Never pick an ambiguous match or borrow another stone's photograph.
+  return matches.length === 1 ? matches[0]?.[1] : undefined;
+}
+
 const extensions = ["png", "jpg", "jpeg", "webp"] as const;
 
 function findImage(
@@ -291,10 +309,12 @@ const seeds: Seed[] = [
   },
 ];
 
-// Automatically build all 13 complete products.
+// Build every registered product without creating missing catalogue entries.
 export const products: Product[] = seeds.map((s) => {
   const image =
     findImage(stoneImages, "stones", s.slug) ?? hero;
+  const side = findGalleryImage(s.name, "Side_View");
+  const texture = findGalleryImage(s.name, "Texture_View");
 
   const applications = Object.fromEntries(
     uses.map((u) => {
@@ -325,6 +345,8 @@ export const products: Product[] = seeds.map((s) => {
         src: image,
         label: "Showroom presentation",
       },
+      ...(side ? [{ src: side, label: "Side / Edge View" }] : []),
+      ...(texture ? [{ src: texture, label: "Texture Detail" }] : []),
     ],
 
     applications,
