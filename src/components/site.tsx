@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { company, products, type Product } from "@/lib/catalogue";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo.png";
 
 const nav = [
   { to: "/collections", label: "Collections" },
