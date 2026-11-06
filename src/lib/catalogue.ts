@@ -367,7 +367,7 @@ export const products: Product[] = seeds.map((s) => {
       {
         label: "Dimensions",
         value:
-          "60×60, 60×120, Cut-to-Size",
+          "60×60, 60×120",
       },
       {
         label: "Thickness",
@@ -377,7 +377,7 @@ export const products: Product[] = seeds.map((s) => {
       {
         label: "Applications",
         value:
-          "Kitchen, flooring, wall finishes, etc",
+          "Kitchen, Flooring, Wall Finishes, etc",
       },
       {
         label: "Company manufacturing location",
