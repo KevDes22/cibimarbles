@@ -54,8 +54,8 @@ function Home() {
         <div className="md:col-span-5">
           <Reveal><SectionHeading eyebrow="The Art of Natural Stone" title="Where Nature Meets Craftsmanship.">
             <p>
-              CIBI is an indigenous Nigerian manufacturer. In Kaduna, natural stone from Nigerian dimension-stone quarries is cut and polished
-              using Italian technology, then fabricated and installed with precision for architects, developers and homeowners.
+              CIBI is an indigenous Nigerian manufacturer of marble and granite tiles and slabs. Employing Italian technology, Natural stone from Nigerian dimension-stone quarries is cut and polished
+              then fabricated and installed with precision for architects, developers and homeowners.
             </p>
           </SectionHeading></Reveal>
           <div className="mt-10"><TextLink to="/about">Learn about CIBI</TextLink></div>

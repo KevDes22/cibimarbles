@@ -18,7 +18,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const pillars = [
-  ["Indigenous manufacturing", "CIBI is a Nigerian company, manufacturing natural stone surfaces from our facility in Kaduna."],
+  ["Indigenous manufacturing", "CIBI is a Nigerian company, manufacturing natural stone surfaces (marble and granite) from our facility in Kaduna."],
   ["Craftsmanship & technology", "Italian cutting and polishing technology, guided by skilled hands."],
   ["Commitment to quality", "From stone selection to installation, every stage is handled with care."],
   ["For those who build", "We serve architects, contractors, developers, interior designers, businesses and homeowners."],
