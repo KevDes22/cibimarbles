@@ -362,22 +362,22 @@ export const products: Product[] = seeds.map((s) => {
       },
       {
         label: "Finish",
-        value: "Ask CIBI about available finishes",
+        value: "Polished, Flamed",
       },
       {
         label: "Dimensions",
         value:
-          "60×60, 60×120, Cut-to-Size (confirm availability)",
+          "60×60, 60×120, Cut-to-Size",
       },
       {
         label: "Thickness",
         value:
-          "15mm, 20mm, 30mm (confirm availability)",
+          "15mm, 20mm, 30mm",
       },
       {
         label: "Applications",
         value:
-          "Kitchen, flooring, wall finishes — subject to suitability",
+          "Kitchen, flooring, wall finishes, etc",
       },
       {
         label: "Company manufacturing location",
