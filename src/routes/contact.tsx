@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { applications, company, enquiryMessage, products } from "@/lib/catalogue";
 import { PageIntro } from "@/components/site";
+import { Button } from "@/components/ui/button";
+import { contactEndpoint, submitContactEnquiry } from "@/lib/contact-submission";
 
 type Search = { product?: string | undefined; application?: string | undefined };
 
@@ -30,20 +32,32 @@ function Contact() {
   const { product, application } = Route.useSearch();
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [sending, setSending] = useState(false);
 
-  function submit(e: FormEvent<HTMLFormElement>) {
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const d = new FormData(e.currentTarget);
-    if (d.get("company_site")) return; // honeypot
+    if (sending) return;
+    const form = e.currentTarget;
+    const d = new FormData(form);
+    setSent(false);
+    if (d.get("_gotcha")) return; // honeypot
     const name = String(d.get("name") || "").trim();
     const email = String(d.get("email") || "").trim();
     if (!name || !/^\S+@\S+\.\S+$/.test(email)) return setError("Please enter your name and a valid email address.");
     setError("");
-    const body = ["name", "email", "phone", "type", "product", "application", "quantity", "location", "message"]
-      .map((k) => `${k.charAt(0).toUpperCase() + k.slice(1)}: ${d.get(k) || "—"}`)
-      .join("\n");
-    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(`Quote request from ${name}`)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    d.set("name", name);
+    d.set("email", email);
+    d.set("_subject", `CIBI enquiry from ${name}`);
+    setSending(true);
+    try {
+      await submitContactEnquiry(d);
+      form.reset();
+      setSent(true);
+    } catch {
+      setError("Your enquiry could not be sent. Please try again or contact CIBI directly.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -53,8 +67,8 @@ function Contact() {
       </PageIntro>
 
       <section className="mx-auto grid max-w-[1440px] gap-20 px-6 pb-32 md:grid-cols-12 md:px-12">
-        <form onSubmit={submit} className="grid gap-8 sm:grid-cols-2 md:col-span-7" noValidate>
-          <input type="text" name="company_site" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+        <form action={contactEndpoint} method="POST" onSubmit={submit} aria-busy={sending} className="grid gap-8 sm:grid-cols-2 md:col-span-7" noValidate>
+          <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
           <label className="space-y-1"><span className={label}>Full name *</span><input name="name" required className={field} /></label>
           <label className="space-y-1"><span className={label}>Email *</span><input name="email" type="email" required className={field} /></label>
           <label className="space-y-1"><span className={label}>Phone</span><input name="phone" type="tel" className={field} /></label>
@@ -81,10 +95,10 @@ function Contact() {
           <label className="space-y-1 sm:col-span-2"><span className={label}>Message</span>
             <textarea name="message" rows={4} className={field} defaultValue={enquiryMessage(product, application)} />
           </label>
-          {error && <p className="text-sm text-destructive sm:col-span-2">{error}</p>}
-          {sent && <p className="text-sm text-muted-foreground sm:col-span-2">Your email app should now be open with the enquiry ready to send. If it didn't open, write to {company.email}.</p>}
+          {error && <p role="alert" className="text-sm text-destructive sm:col-span-2">{error}</p>}
+          {sent && <p role="status" className="text-sm text-muted-foreground sm:col-span-2">Thank you. Your enquiry has been submitted to CIBI.</p>}
           <div className="sm:col-span-2">
-            <button type="submit" className="eyebrow bg-charcoal px-10 py-4 text-ivory transition-colors hover:bg-charcoal/90">Send Enquiry</button>
+            <Button type="submit" disabled={sending} className="eyebrow h-auto rounded-none bg-charcoal px-10 py-4 text-ivory shadow-none hover:bg-charcoal/90">{sending ? "Sending…" : "Send Enquiry"}</Button>
           </div>
         </form>
 
