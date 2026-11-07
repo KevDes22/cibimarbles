@@ -102,7 +102,7 @@ export function SiteFooter() {
             </a>
             <span className="mx-2 text-ivory/30">|</span>
             <a
-              href="https://diithub.vercel.app/"
+              href="https://diithub.vercel.app/destiny-kevin"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-gold"
