@@ -91,25 +91,6 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-2 px-6 py-6 text-xs text-ivory/50 md:flex-row md:items-center md:px-12">
           <span>© {new Date().getFullYear()} {company.name}. All rights reserved.</span>
           <span>Exceptional Stone. Extraordinary Spaces.</span>
-          <span>
-            <a
-              href="https://diithub.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-gold"
-            >
-              Website Designed by DIIT Hub
-            </a>
-            <span className="mx-2 text-ivory/30">|</span>
-            <a
-              href="https://diithub.vercel.app/destiny-kevin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-gold"
-            >
-              Contact us
-            </a>
-          </span>
         </div>
       </div>
     </footer>
